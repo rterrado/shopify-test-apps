@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Shopify Test</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+        <main ng-app="myShopifyStore">
+            Hello World! This is where my Shopify App testings would be hosted from! :)
+            <div class="" ng-controller="testController">
+                {{ test }}
+            </div>
+        </main>
+
+
+        <script type="text/javascript">
+            var app = angular.module("myShopifyStore", []);
+            app.controller("testController", function($scope, $http){
+                $http.get("https://fd99930482ddccadc6cba35aa85baf8e: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@kenjie-test-store.myshopify.com/admin/api/2021-01/products.json").then(function (response) {
+                    $scope.test = response.data.fields;
+                });
+            });
+        </script>
+    </body>
+</html>
